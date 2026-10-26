@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zombie Beat</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #0b1020; font-family: system-ui, sans-serif; }
+      #scene-container { position: fixed; inset: 0; }
+      #menu { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(8, 12, 24, 0.82); z-index: 20; }
+      #menu[hidden] { display: none; }
+      #menu .card { width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto; padding: 28px; border-radius: 18px; background: #111827; color: #e5e7eb; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+      #menu h1 { margin: 0 0 4px; font-size: 28px; }
+      #menu p { margin: 0 0 18px; color: #94a3b8; font-size: 14px; }
+      #menu [data-levels] { display: grid; gap: 8px; }
+      #menu button { padding: 12px 16px; border-radius: 10px; border: 1px solid #334155; background: #1f2937; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+      #menu button:hover { border-color: #818cf8; background: #27304a; }
+      #menu [data-vr] { margin-top: 16px; width: 100%; text-align: center; background: #4f46e5; border-color: #6366f1; font-weight: 600; }
+      #hud { position: fixed; top: 16px; left: 16px; z-index: 10; color: #f8fafc; font-size: 14px; pointer-events: none; text-shadow: 0 1px 2px #000; max-width: min(420px, calc(100vw - 32px)); }
+      #hud[hidden] { display: none; }
+      #hud .bar { position: relative; width: 260px; height: 18px; border-radius: 9px; background: rgba(51,65,85,.85); overflow: hidden; }
+      #hud .fill { height: 100%; background: #ef4444; }
+      #hud .bar span { position: absolute; inset: 0; text-align: center; font-size: 12px; line-height: 18px; }
+      #hud .meta { margin-top: 6px; color: #cbd5e1; }
+      #hud .level { margin-top: 10px; font-weight: 600; font-size: 16px; }
+      #hud .board { margin: 6px 0 0; padding: 0; list-style: none; }
+      #hud .board li.met { color: #4ade80; }
+      #hud .board li.lose { color: #fca5a5; }
+      #hud .quests { margin-top: 8px; color: #fde68a; }
+      #hud .messages { margin-top: 10px; font-weight: 600; }
+      #countdown { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 11; width: min(300px, calc(100vw - 32px)); box-sizing: border-box; padding: 8px 14px; border-radius: 10px; background: rgba(15,23,42,.8); border: 1px solid rgba(250,204,21,.5); color: #f8fafc; font-size: 14px; text-shadow: 0 1px 2px #000; }
+      #countdown[hidden] { display: none; }
+      #countdown .head { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; }
+      #countdown .secs { color: #facc15; font-size: 20px; font-variant-numeric: tabular-nums; }
+      #countdown .detail { color: #cbd5e1; font-size: 12px; margin: 2px 0 6px; }
+      #countdown .track { height: 6px; border-radius: 3px; background: rgba(51,65,85,.85); overflow: hidden; }
+      #countdown .track div { height: 100%; background: #facc15; }
+      #countdown button { margin-top: 7px; padding: 3px 12px; border-radius: 6px; border: 1px solid rgba(250,204,21,.6); background: rgba(250,204,21,.16); color: inherit; font: inherit; font-size: 12px; cursor: pointer; }
+      #countdown button[hidden] { display: none; }
+      #crosshair { position: fixed; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: rgba(255,255,255,.8); z-index: 5; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="scene-container"></div>
+    <div id="crosshair"></div>
+    <div id="hud" hidden></div>
+    <div id="countdown" hidden>
+      <div class="head"><span data-title></span><span class="secs" data-secs></span></div>
+      <div class="detail" data-detail></div>
+      <div class="track"><div data-fill></div></div>
+      <button type="button" data-skip hidden>Continue (Enter)</button>
+    </div>
+    <div id="menu">
+      <div class="card">
+        <h1 data-title>Zombie Beat</h1>
+        <p>Click a level to play. WASD to move, mouse to look (click to lock), click or F to attack.</p>
+        <div data-levels></div>
+        <button type="button" data-vr hidden>Enter VR</button>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
