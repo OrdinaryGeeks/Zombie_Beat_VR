@@ -1,0 +1,1 @@
+export{n as initializeWorld}from"./world-initializer-C4Im0LA-.js";

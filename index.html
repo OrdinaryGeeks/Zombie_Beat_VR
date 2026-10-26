@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zombie Beat</title>
+    <style>html,body{background:#0b1020;height:100%;margin:0;font-family:system-ui,sans-serif;overflow:hidden}#scene-container{position:fixed;inset:0}#menu{z-index:20;background:#080c18d1;justify-content:center;align-items:center;display:flex;position:fixed;inset:0}#menu[hidden]{display:none}#menu .card{color:#e5e7eb;background:#111827;border-radius:18px;width:min(520px,100vw - 32px);max-height:calc(100vh - 32px);padding:28px;overflow:auto;box-shadow:0 20px 60px #00000080}#menu h1{margin:0 0 4px;font-size:28px}#menu p{color:#94a3b8;margin:0 0 18px;font-size:14px}#menu [data-levels]{gap:8px;display:grid}#menu button{color:inherit;font:inherit;text-align:left;cursor:pointer;background:#1f2937;border:1px solid #334155;border-radius:10px;padding:12px 16px}#menu button:hover{background:#27304a;border-color:#818cf8}#menu [data-vr]{text-align:center;background:#4f46e5;border-color:#6366f1;width:100%;margin-top:16px;font-weight:600}#hud{z-index:10;color:#f8fafc;pointer-events:none;text-shadow:0 1px 2px #000;max-width:min(420px,100vw - 32px);font-size:14px;position:fixed;top:16px;left:16px}#hud[hidden]{display:none}#hud .bar{background:#334155d9;border-radius:9px;width:260px;height:18px;position:relative;overflow:hidden}#hud .fill{background:#ef4444;height:100%}#hud .bar span{text-align:center;font-size:12px;line-height:18px;position:absolute;inset:0}#hud .meta{color:#cbd5e1;margin-top:6px}#hud .level{margin-top:10px;font-size:16px;font-weight:600}#hud .board{margin:6px 0 0;padding:0;list-style:none}#hud .board li.met{color:#4ade80}#hud .board li.lose{color:#fca5a5}#hud .quests{color:#fde68a;margin-top:8px}#hud .messages{margin-top:10px;font-weight:600}#countdown{z-index:11;box-sizing:border-box;color:#f8fafc;text-shadow:0 1px 2px #000;background:#0f172acc;border:1px solid #facc1580;border-radius:10px;width:min(300px,100vw - 32px);padding:8px 14px;font-size:14px;position:fixed;top:16px;left:50%;transform:translate(-50%)}#countdown[hidden]{display:none}#countdown .head{justify-content:space-between;align-items:baseline;font-weight:700;display:flex}#countdown .secs{color:#facc15;font-variant-numeric:tabular-nums;font-size:20px}#countdown .detail{color:#cbd5e1;margin:2px 0 6px;font-size:12px}#countdown .track{background:#334155d9;border-radius:3px;height:6px;overflow:hidden}#countdown .track div{background:#facc15;height:100%}#countdown button{color:inherit;font:inherit;cursor:pointer;background:#facc1529;border:1px solid #facc1599;border-radius:6px;margin-top:7px;padding:3px 12px;font-size:12px}#countdown button[hidden]{display:none}#crosshair{z-index:5;pointer-events:none;background:#fffc;border-radius:50%;width:6px;height:6px;margin:-3px 0 0 -3px;position:fixed;top:50%;left:50%}</style>
+    <script type="module" crossorigin src="/zombie-beat-xr/assets/index-BKscyArs.js"></script>
+    <link rel="modulepreload" crossorigin href="/zombie-beat-xr/assets/three.core-gSyWZGxQ.js">
+    <link rel="modulepreload" crossorigin href="/zombie-beat-xr/assets/physicsShape-VQ3_uLnd.js">
+    <link rel="modulepreload" crossorigin href="/zombie-beat-xr/assets/preload-helper-BkbWzmWv.js">
+    <link rel="modulepreload" crossorigin href="/zombie-beat-xr/assets/dist-BUQlb4-7.js">
+    <link rel="modulepreload" crossorigin href="/zombie-beat-xr/assets/world-initializer-C4Im0LA-.js">
+  </head>
+  <body>
+    <div id="scene-container"></div>
+    <div id="crosshair"></div>
+    <div id="hud" hidden></div>
+    <div id="countdown" hidden>
+      <div class="head"><span data-title></span><span class="secs" data-secs></span></div>
+      <div class="detail" data-detail></div>
+      <div class="track"><div data-fill></div></div>
+      <button type="button" data-skip hidden>Continue (Enter)</button>
+    </div>
+    <div id="menu">
+      <div class="card">
+        <h1 data-title>Zombie Beat</h1>
+        <p>Click a level to play. WASD to move, mouse to look (click to lock), click or F to attack.</p>
+        <div data-levels></div>
+        <button type="button" data-vr hidden>Enter VR</button>
+      </div>
+    </div>
+  </body>
+</html>

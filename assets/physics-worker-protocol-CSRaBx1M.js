@@ -1,0 +1,1 @@
+function e(e,t){return 64+Math.max(e*24*4,t*14*4)}function t(e,t){if(!Number.isFinite(e)||!Number.isFinite(t)||e<=0||t<e*2)return null;let n=t/2-e;return n===0?[[0,0,0],[0,0,0]]:[[0,-n,0],[0,n,0]]}export{e as n,t};
