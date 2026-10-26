@@ -1,0 +1,1 @@
+export{n as initializeWorld}from"./world-initializer-Cp5ClsCg.js";
